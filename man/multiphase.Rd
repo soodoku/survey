@@ -89,4 +89,7 @@ summary(svyglm(edrel~rel+histol+stage, design=mcchs))
 
 m<-calibrate(mcchs,~factor(stage)+rel, phase=2, calfun="raking")
 vcov(svytotal(~factor(stage), m))
+
+
+
 }

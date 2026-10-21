@@ -69,7 +69,7 @@ Applying the calibration constraints to the second term we  have
 $$\sum_iR_ig_{i,k|k-1}\check{e}_{i,k}+\sum_i R_{i,k}g_{i,k|k-1}\check{\hat x}_{i,k}=\sum_iR_ig_{i,k|k-1}\check{e}_{i,k}+\sum_i R_{i,k-1}\check{\hat x}_{i,k-1}$$
 and since $\hat x_{i,k-1}$ is not random (to first order) conditional on phase $k-1$
 the estimated variance contribution for phase $k$ comes from just the first term and is
-$$\widehat{\textrm{var}}_{k|k-1}\left[\hat T_X\right]=\sum_{i,j}\frac{R_{i,K}R_{j,K}}{\pi^\dagger_{jk,K}}g_{i,k|k-1}g_{j,k|k-1}\check{e}_{i,k}\check{e}_{j,k}\check{\Delta}_{ij,k|k-1}$$
+$$\widehat{\textrm{var}}_{k|k-1}\left[\hat T_X\right]=\sum_{i,j}\frac{R_{i,K}R_{j,K}}{\pi^\dagger_{jk,k}}g_{i,k|k-1}g_{j,k|k-1}\check{e}_{i,k}\check{e}_{j,k}\check{\Delta}_{ij,k|k-1}$$
 with the variances of the other phases being unaffected. 
 
 
