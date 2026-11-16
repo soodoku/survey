@@ -380,11 +380,11 @@ svyrecvar<-function(x, clusters,  stratas, fpcs, postStrata=NULL,
   }
     if (use_rcpp) {
         multistage_rcpp(x, clusters,stratas,fpcs$sampsize, fpcs$popsize,
-                        lonely.psu=getOption("survey.lonely.psu"),
+                        lonely.psu=lonely.psu,
                         one.stage=one.stage,stage=1,cal=cal)
     } else {
         multistage(x, clusters,stratas,fpcs$sampsize, fpcs$popsize,
-                   lonely.psu=getOption("survey.lonely.psu"),
+                   lonely.psu=lonely.psu,
                    one.stage=one.stage,stage=1,cal=cal)
     }
 }
