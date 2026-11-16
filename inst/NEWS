@@ -1,6 +1,10 @@
 4.5-3   svytable() and thus svychisq() gave the wrong answer when there was a variable
 	called 'weights' in the dataset that wasn't the weights variable. (Clark Andersen)
 
+	svynls() with replicate weights only refitted the model for the last
+	replicate, so the other replicate estimates were zero and the standard
+	errors were far too large
+
 4.5-2   calibrate(twophase, formula=fitted_model,phase=2) was putting the calibration
         std error information in the wrong place and overestimating standard errors
 

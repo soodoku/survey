@@ -64,7 +64,7 @@ svynls.svyrep.design<-function(formula, design, start, weights=NULL, ..., return
     repwts<-weights(design,"analysis")
     thetas<-matrix(0, ncol=length(theta),nrow=ncol(repwts))
     
-    for(i in ncol(repwts)){
+    for(i in seq_len(ncol(repwts))){
           dat$.survey.repwt<-prior.weights*repwts[,i]/meanweight
           model<-nls(formula,dat, weights=.survey.repwt,start=theta, ...)
           thetas[i, ] <- coef(model)
