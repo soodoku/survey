@@ -125,7 +125,7 @@ svynls.survey.design2<-function(formula, design, start, weights=NULL, ..., influ
     theta<-coef(fit)
     
     grads<-fit$m$gradient()/sqrt(w)  ## nls scales by sqrt(weights)
-    resids<-fit$m$resid()
+    resids<-fit$m$resid()/sqrt(w)  ## and so are the residuals
     infl<-resids*grads%*%v0
     v<-svyrecvar(infl*w, design$cluster, design$strata, 
                  design$fpc, postStrata = design$postStrata)

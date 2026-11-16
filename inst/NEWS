@@ -1,6 +1,10 @@
 4.5-3   svytable() and thus svychisq() gave the wrong answer when there was a variable
 	called 'weights' in the dataset that wasn't the weights variable. (Clark Andersen)
 
+	svynls() linearisation standard errors used the weighted residuals from
+	nls(), giving an extra factor of sqrt(weights) in the influence functions.
+	For a model linear in the parameters they now agree with svyglm()
+
 4.5-2   calibrate(twophase, formula=fitted_model,phase=2) was putting the calibration
         std error information in the wrong place and overestimating standard errors
 
