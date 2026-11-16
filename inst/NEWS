@@ -1,6 +1,9 @@
 4.5-3   svytable() and thus svychisq() gave the wrong answer when there was a variable
 	called 'weights' in the dataset that wasn't the weights variable. (Clark Andersen)
 
+	svyrecvar() ignored its lonely.psu= argument and always used
+	options("survey.lonely.psu")
+
 4.5-2   calibrate(twophase, formula=fitted_model,phase=2) was putting the calibration
         std error information in the wrong place and overestimating standard errors
 
