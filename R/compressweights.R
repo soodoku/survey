@@ -43,9 +43,20 @@ compressWeights<-function(rw,...){
 
 compressWeights.default<-function(rw,...){
   mat<-as.matrix(rw)
-  tmp<-apply(mat,1,function(x) paste(x,collapse="\r"))
-  unq<-!duplicated(mat)
-  rval<-list(weights=mat[unq,],index=match(tmp,tmp[unq]))
+  index<-rep.int(1L,nrow(mat))
+  if (nrow(mat)>1L && ncol(mat)>0L){
+    ## grouping() rounds doubles, so give it exact integer value codes.
+    codes<-lapply(seq_len(ncol(mat)), function(j){
+      x<-mat[,j]
+      match(x,unique(x))
+    })
+    grouped<-do.call(grouping,codes)
+    ends<-attr(grouped,"ends")
+    index[grouped]<-rep.int(seq_along(ends),diff(c(0L,ends)))
+    ## Store representatives in their original order of appearance.
+    index<-match(index,unique(index))
+  }
+  rval<-list(weights=mat[!duplicated(index),,drop=FALSE],index=index)
   class(rval)<-c("repweights_compressed","repweights")
   rval
 }
